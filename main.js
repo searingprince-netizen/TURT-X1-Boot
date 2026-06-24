@@ -1,51 +1,59 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // DOM Element hooks
-    const core = document.getElementById("energy-core");
-    const ring = document.getElementById("crystal-ring");
-    const brand = document.getElementById("brand-container");
-    const sweep = document.querySelector(".laser-sweep");
+    
+    // Stages
+    const origin = document.getElementById("energy-origin");
+    const ring = document.getElementById("crystal-ring-container");
+    const brand = document.getElementById("brand-matrix");
+    const textX1 = document.querySelector(".text-x1");
+    const sweep = document.querySelector(".laser-flare-sweep");
     const manifest = document.getElementById("os-manifest");
-    const diamond = document.querySelector(".core-diamond");
+    const complete = document.getElementById("boot-complete");
 
-    // Boot Time Sequence Manager
-    function runBootPipeline() {
-        // Frame 01 & 02: Spark manifestation
-        setTimeout(() => {
-            core.classList.add("show-block", "pulse-fast");
-        }, 200);
+    function bootSequence() {
+        // Frame 01: Energy Origin
+        origin.classList.add("visible");
 
-        // Frame 03 & 04: Spark explodes into spinning crystal ring
+        // Frame 02-04: Ring Expands & Rotates
         setTimeout(() => {
-            core.style.display = "none";
-            ring.classList.add("show-block", "spin-ring");
-        }, 1500);
+            origin.classList.add("fade-out");
+            ring.classList.add("visible", "anim-ring-expand");
+            
+            // Switch to continuous rotation after expansion
+            setTimeout(() => {
+                ring.classList.remove("anim-ring-expand");
+                ring.classList.add("anim-ring-rotate");
+            }, 3000);
+        }, 800);
 
-        // Frame 05 & 06: Ring compresses & TURT branding establishes
+        // Frame 05-06: Letters Form ("TURT" appears inside ring)
         setTimeout(() => {
-            ring.style.display = "none";
-            brand.classList.add("show-flex");
-        }, 3800);
+            brand.classList.add("visible");
+        }, 3200);
 
-        // Frame 07 & 08: X1 entries & Horizontal light sweep ignition
+        // Frame 07: X1 Slides In & Ring starts fading
         setTimeout(() => {
-            sweep.classList.add("sweep-active");
-        }, 4600);
+            ring.classList.add("fade-out");
+            textX1.classList.add("slide-in");
+        }, 4500);
 
-        // Frame 09 & 10: Hold state for brand matrix validation
+        // Frame 08-10: Light Sweep & Hold
         setTimeout(() => {
-            brand.style.transform = "scale(0.95)";
-            brand.style.transition = "all 0.8s ease-in-out";
-            brand.style.opacity = "0";
-        }, 6500);
+            sweep.classList.add("anim-sweep");
+        }, 5200);
 
-        // Frame 11 & 12: Final geometric crystal reveal & Welcome sequence
+        // Frame 11: OS Reveal (Diamond & Pedestal)
         setTimeout(() => {
-            brand.style.display = "none";
-            manifest.classList.add("show-flex");
-            diamond.classList.add("diamond-glow");
-        }, 7300);
+            brand.classList.add("fade-out");
+            manifest.classList.add("visible");
+        }, 7500);
+
+        // Frame 12: Boot Complete
+        setTimeout(() => {
+            manifest.classList.add("fade-out");
+            complete.classList.add("visible");
+        }, 11000);
     }
 
-    // Initialize boot pipeline
-    runBootPipeline();
+    // Start Boot
+    setTimeout(bootSequence, 500);
 });
