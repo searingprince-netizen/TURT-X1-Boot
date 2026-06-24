@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TURT X1 Boot System</title>
+    <title>TURT X1 - Premium Boot Sequence</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <div id="ambient-lighting"></div>
+
+    <div class="ambient-particles"></div>
 
     <div id="scene">
         
@@ -19,11 +23,11 @@
         </div>
         
         <div id="crystal-ring-container" class="element">
-            <div class="ring-particle-dust"></div>
             <div class="crystal-layer layer-base"></div>
             <div class="crystal-layer layer-shard-1"></div>
             <div class="crystal-layer layer-shard-2"></div>
             <div class="crystal-layer layer-glow"></div>
+            <div class="glass-refraction"></div>
         </div>
 
         <div id="brand-matrix" class="element">
@@ -34,6 +38,7 @@
             <div class="anamorphic-flare">
                 <div class="flare-core"></div>
                 <div class="flare-line"></div>
+                <div class="flare-burst"></div>
             </div>
         </div>
 
@@ -44,13 +49,14 @@
                 <div class="gem-top-right"></div>
                 <div class="gem-bottom"></div>
                 <div class="gem-inner-glow"></div>
+                <div class="gem-core-sparkle"></div>
             </div>
             <div class="hologram-pedestal">
                 <div class="pedestal-ring-1"></div>
                 <div class="pedestal-ring-2"></div>
                 <div class="pedestal-core-glow"></div>
+                <div class="pedestal-radar-sweep"></div>
             </div>
-            <div class="os-title">Crystal OS/Ui</div>
         </div>
 
         <div id="boot-complete" class="element">
