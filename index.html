@@ -4,25 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TURT X1 Boot System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div id="scene">
-        <div id="energy-core" class="element"></div>
-        <div id="crystal-ring" class="element"></div>
+        
+        <div id="energy-origin" class="element"></div>
+        
+        <div id="crystal-ring-container" class="element">
+            <div class="crystal-layer layer-1"></div>
+            <div class="crystal-layer layer-2"></div>
+            <div class="crystal-layer layer-3"></div>
+            <div class="ring-flare"></div>
+        </div>
 
-        <div id="brand-container" class="element">
-            <span class="text-turt">TURT</span>
-            <span class="text-x1">X1</span>
-            <div class="laser-sweep"></div>
+        <div id="brand-matrix" class="element">
+            <div class="logo-text-wrapper">
+                <span class="text-turt">TURT</span>
+                <span class="text-x1">X1</span>
+            </div>
+            <div class="laser-flare-sweep"></div>
         </div>
 
         <div id="os-manifest" class="element">
-            <div class="core-diamond"></div>
-            <div class="welcome-meta">Welcome to</div>
-            <div class="brand-title">Crystal OS/Ui</div>
+            <div class="crystal-diamond-3d">
+                <div class="facet-top"></div>
+                <div class="facet-bottom"></div>
+                <div class="core-glow"></div>
+            </div>
+            <div class="hologram-pedestal"></div>
+            <div class="os-title">Crystal OS/Ui</div>
         </div>
+
+        <div id="boot-complete" class="element">
+            <div class="welcome-text">Welcome to</div>
+            <div class="os-title-final">Crystal OS/Ui</div>
+            <div class="tiny-flare"></div>
+        </div>
+
     </div>
 
     <script src="main.js"></script>
