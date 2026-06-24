@@ -1,59 +1,67 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // Stages
     const origin = document.getElementById("energy-origin");
-    const ring = document.getElementById("crystal-ring-container");
+    const ringContainer = document.getElementById("crystal-ring-container");
+    const layer1 = document.querySelector(".layer-shard-1");
+    const layer2 = document.querySelector(".layer-shard-2");
+    
     const brand = document.getElementById("brand-matrix");
     const textX1 = document.querySelector(".text-x1");
-    const sweep = document.querySelector(".laser-flare-sweep");
+    const flare = document.querySelector(".anamorphic-flare");
+    
     const manifest = document.getElementById("os-manifest");
     const complete = document.getElementById("boot-complete");
 
-    function bootSequence() {
-        // Frame 01: Energy Origin
+    function executeBoot() {
+        // Frame 01: Energy Spark
         origin.classList.add("visible");
 
-        // Frame 02-04: Ring Expands & Rotates
+        // Frame 02-04: Ring Expands and Starts Complex Rotation
         setTimeout(() => {
             origin.classList.add("fade-out");
-            ring.classList.add("visible", "anim-ring-expand");
+            ringContainer.classList.add("visible", "anim-ring-expand");
             
-            // Switch to continuous rotation after expansion
             setTimeout(() => {
-                ring.classList.remove("anim-ring-expand");
-                ring.classList.add("anim-ring-rotate");
-            }, 3000);
-        }, 800);
+                ringContainer.classList.remove("anim-ring-expand");
+                layer1.classList.add("anim-ring-spin-1");
+                layer2.classList.add("anim-ring-spin-2");
+            }, 3500);
+        }, 1000);
 
-        // Frame 05-06: Letters Form ("TURT" appears inside ring)
+        // Frame 05-06: TURT inside the ring
         setTimeout(() => {
             brand.classList.add("visible");
-        }, 3200);
+        }, 3800);
 
-        // Frame 07: X1 Slides In & Ring starts fading
+        // Frame 07: X1 Slides in & Ring fades back
         setTimeout(() => {
-            ring.classList.add("fade-out");
+            ringContainer.style.opacity = "0.3"; // Ring goes to background
             textX1.classList.add("slide-in");
-        }, 4500);
-
-        // Frame 08-10: Light Sweep & Hold
-        setTimeout(() => {
-            sweep.classList.add("anim-sweep");
         }, 5200);
 
-        // Frame 11: OS Reveal (Diamond & Pedestal)
+        // Frame 08-10: Anamorphic Light Sweep
+        setTimeout(() => {
+            flare.classList.add("anim-flare-sweep");
+        }, 6000);
+
+        // Frame 11: OS Reveal (Diamond & Hologram Pedestal)
         setTimeout(() => {
             brand.classList.add("fade-out");
-            manifest.classList.add("visible");
-        }, 7500);
+            ringContainer.classList.add("fade-out");
+            
+            setTimeout(() => {
+                manifest.classList.add("visible");
+            }, 800);
+        }, 8500);
 
-        // Frame 12: Boot Complete
+        // Frame 12: Minimal Welcome Screen
         setTimeout(() => {
             manifest.classList.add("fade-out");
-            complete.classList.add("visible");
-        }, 11000);
+            setTimeout(() => {
+                complete.classList.add("visible");
+            }, 800);
+        }, 12500);
     }
 
-    // Start Boot
-    setTimeout(bootSequence, 500);
+    setTimeout(executeBoot, 800);
 });
